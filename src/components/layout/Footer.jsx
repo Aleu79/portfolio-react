@@ -13,7 +13,7 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} Mi Portafolio. Todos los derechos reservados.
         </p>
         <p className="text-sm mt-2">
-          Diseñado con ❤️ por <a href="/" className="hover:underline text-blue-400">Damian Aguero</a>.
+          Diseñado con ❤️ por <a href="/" className="hover:underline text-blue-400">Damian agüero</a>.
         </p>
       </div>
     </footer>

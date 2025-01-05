@@ -34,7 +34,7 @@ export default function Home() {
             <h1 className={`text-5xl font-semibold tracking-tight ${
               darkMode ? 'text-white' : 'text-gray-900'
             } sm:text-7xl transition-colors duration-300`}>
-              Damian Aguero
+              Damian agüero
             </h1>
             <p className={`mt-8 text-lg font-medium ${
               darkMode ? 'text-gray-300' : 'text-gray-500'

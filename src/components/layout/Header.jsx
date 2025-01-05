@@ -60,7 +60,7 @@ function Header() {
           <div className="flex items-center justify-between">
             <div className="flex items-center md:hidden">
               <span className={`text-lg font-medium ${currentTheme.text}`}>
-                Damian Aguero
+                Damian agüero
               </span>
             </div>
             <button onClick={() => updateExpanded(!expand)} className="block md:hidden">
