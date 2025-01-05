@@ -30,7 +30,7 @@ const Typedos = () => {
       wrapper="span" 
       cursor={true} 
       repeat={Infinity} 
-      className="text-purple-400" 
+      className="text-cyan-400" 
     />
   );
 };
