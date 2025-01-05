@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { CgGitFork, CgFileDocument } from "react-icons/cg";
 import { ImBlog } from "react-icons/im";
 import { AiFillStar, AiOutlineHome, AiOutlineFundProjectionScreen, AiOutlineUser } from "react-icons/ai";
+import { useTheme } from "../../context/ThemeContext";
 
 const theme = {
   light: {
@@ -23,18 +24,11 @@ const theme = {
 
 function Header() {
   const [expand, updateExpanded] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const { darkMode, toggleDarkMode } = useTheme();
 
   const currentTheme = darkMode ? theme.dark : theme.light;
-
-  useEffect(() => {
-    const storedMode = localStorage.getItem("darkMode");
-    if (storedMode === "true") {
-      setDarkMode(true);
-    }
-  }, []);
 
   useEffect(() => {
     const controlNavbar = () => {
@@ -52,19 +46,6 @@ function Header() {
       window.removeEventListener('scroll', controlNavbar);
     };
   }, [lastScrollY]);
-
-  const handleDarkModeToggle = () => {
-    const newDarkMode = !darkMode;
-    setDarkMode(newDarkMode);
-    
-    if (newDarkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("darkMode", "true");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("darkMode", "false");
-    }
-  };
 
   const linkClasses = `text-lg flex items-center space-x-2 py-1 ${currentTheme.text} ${currentTheme.hoverText}`;
 
@@ -127,11 +108,11 @@ function Header() {
                 <span>Github</span>
               </a>
               <button
-                onClick={handleDarkModeToggle}
-                className={`py-1 px-3 rounded-md transition-all duration-300 ${currentTheme.toggleButton}`}
-              >
-                {darkMode ? "🌞" : "🌙"}
-              </button>
+        onClick={toggleDarkMode}
+        className={`py-1 px-3 rounded-md transition-all duration-300 ${currentTheme.toggleButton}`}
+      >
+        {darkMode ? "🌞" : "🌙"}
+      </button>
             </div>
           </div>
         </div>
