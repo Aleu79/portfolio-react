@@ -1,0 +1,10 @@
+{
+  "start": "const Damian = (name, passion) => {",
+  "middle": "    return `Hello, I'm ${name} and I love ${passion}`;",
+  "end": "}",
+  "final": "Hello, my name is Damian Aguero",
+  "extra1": "I enjoy coding every single day!",
+  "extra2": "JavaScript is my favorite language.",
+  "extra3": "React is amazing for building UIs.",
+  "extra4": "Let's build something awesome together."
+}
