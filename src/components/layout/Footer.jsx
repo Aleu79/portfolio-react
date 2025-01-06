@@ -42,15 +42,15 @@ const Footer = () => {
         } w-full`}
       >
         <div className="container mx-auto text-center relative z-10">
-          <p className="text-sm text-gradient hover:text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text transition-all duration-500">
-            &copy; {new Date().getFullYear()} Use, change, etc. this theme! It is open source 🥰
+          <p className="text-sm text-gradient hover:text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text transition-all duration-500 transform hover:scale-105">
+            &copy; {new Date().getFullYear()} Use, change, etc. this theme! It is open source 
           </p>
           <div className="mt-6 flex justify-center space-x-6">
             <a
               href="https://github.com/Aleu79"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-2xl hover:text-gray-400 transition-colors duration-300"
+              className="text-2xl hover:text-gray-400 transition-colors duration-300 transform hover:scale-125 hover:rotate-12 transition-transform duration-500"
             >
               <FaGithub />
             </a>
@@ -58,7 +58,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/ale-ag%C3%BCero-48636a322/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-2xl hover:text-blue-600 transition-colors duration-300"
+              className="text-2xl hover:text-blue-600 transition-colors duration-300 transform hover:scale-125 hover:rotate-12 transition-transform duration-500"
             >
               <FaLinkedin />
             </a>
@@ -66,7 +66,7 @@ const Footer = () => {
               href="https://www.upwork.com/freelancers/~010a10b44bc6b19652"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-2xl hover:text-green-500 transition-colors duration-300 transform hover:scale-110 transition-transform duration-500"
+              className="text-2xl hover:text-green-500 transition-colors duration-300 transform hover:scale-125 hover:rotate-12 transition-transform duration-500"
             >
               <FaSquareUpwork />
             </a>

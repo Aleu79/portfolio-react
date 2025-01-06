@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { CgGitFork, CgFileDocument } from "react-icons/cg";
-import { ImBlog } from "react-icons/im";
-import { AiFillStar, AiOutlineHome, AiOutlineFundProjectionScreen, AiOutlineUser } from "react-icons/ai";
+import {  AiOutlineHome, AiOutlineFundProjectionScreen, AiOutlineUser } from "react-icons/ai";
 import { useTheme } from "../../context/ThemeContext";
 
 const theme = {
@@ -48,6 +47,7 @@ function Header() {
   }, [lastScrollY]);
 
   const linkClasses = `text-lg flex items-center space-x-2 py-1 ${currentTheme.text} ${currentTheme.hoverText}`;
+  const activeLinkClasses = `${linkClasses} font-bold border-b-2 border-indigo-500`; 
 
   return (
     <nav
@@ -79,22 +79,38 @@ function Header() {
           </div>
           <div className={`md:flex md:items-center md:justify-center md:space-x-6 ${expand ? "block" : "hidden"} mt-4 md:mt-0`}>
             <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
-              <Link to="/" className={linkClasses} onClick={() => updateExpanded(false)}>
+              <NavLink
+                to="/"
+                className={({ isActive }) => isActive ? activeLinkClasses : linkClasses} 
+                onClick={() => updateExpanded(false)}
+              >
                 <AiOutlineHome />
                 <span>Home</span>
-              </Link>
-              <Link to="/about" className={linkClasses} onClick={() => updateExpanded(false)}>
+              </NavLink>
+              <NavLink
+                to="/about"
+                className={({ isActive }) => isActive ? activeLinkClasses : linkClasses}
+                onClick={() => updateExpanded(false)}
+              >
                 <AiOutlineUser />
                 <span>About</span>
-              </Link>
-              <Link to="/project" className={linkClasses} onClick={() => updateExpanded(false)}>
+              </NavLink>
+              <NavLink
+                to="/project"
+                className={({ isActive }) => isActive ? activeLinkClasses : linkClasses}
+                onClick={() => updateExpanded(false)}
+              >
                 <AiOutlineFundProjectionScreen />
                 <span>Projects</span>
-              </Link>
-              <Link to="/resume" className={linkClasses} onClick={() => updateExpanded(false)}>
+              </NavLink>
+              <NavLink
+                to="/resume"
+                className={({ isActive }) => isActive ? activeLinkClasses : linkClasses}
+                onClick={() => updateExpanded(false)}
+              >
                 <CgFileDocument />
                 <span>Resume</span>
-              </Link>
+              </NavLink>
               <a
                 href="https://github.com/Aleu79"
                 target="_blank"
@@ -102,7 +118,6 @@ function Header() {
                 className="flex items-center space-x-2 py-1 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-indigo-500 hover:via-purple-500 hover:to-pink-500 px-3 py-1 rounded-md shadow-lg transform transition-all duration-300 hover:scale-105 text-white"
               >
                 <CgGitFork />
-                <AiFillStar />
                 <span>Github</span>
               </a>
               <button
