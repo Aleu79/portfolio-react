@@ -25,6 +25,7 @@
     "react-slick": "^0.30.3",
     "react-tsparticles": "^2.12.2",
     "react-type-animation": "^3.2.0",
+    "react-world-flags": "^1.6.0",
     "slick-carousel": "^1.8.1",
     "three": "^0.172.0",
     "typewriter-effect": "^2.21.0"

@@ -2,9 +2,20 @@ import React from 'react';
 import { useTheme } from '../../context/ThemeContext';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'; 
 import { FaSquareUpwork } from 'react-icons/fa6'; 
+import { useLanguage } from '../../context/LanguajeContext';
 
+const texts={
+  en:{
+    textfooter: "Use, change, etc. this theme! It is open source",
+  },
+  es:{
+    textfooter: "¡Usa, cambia, etc. este tema! Es de código abierto",
+  }
+}
 const Footer = () => {
   const { darkMode } = useTheme();
+    const { language, toggleLanguage } = useLanguage(); 
+  
 
   const blurredBalls = [
     { top: '10%', left: '15%', size: '5rem', from: '#a8ff78', to: '#78ffd6' },
@@ -43,7 +54,7 @@ const Footer = () => {
       >
         <div className="container mx-auto text-center relative z-10">
           <p className="text-sm text-gradient hover:text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text transition-all duration-500 transform hover:scale-105">
-            &copy; {new Date().getFullYear()} Use, change, etc. this theme! It is open source 
+            &copy; {new Date().getFullYear()}    {texts[language].textfooter}
           </p>
           <div className="mt-6 flex justify-center space-x-6">
             <a

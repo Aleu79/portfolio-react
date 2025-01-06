@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { CgGitFork, CgFileDocument } from "react-icons/cg";
-import {  AiOutlineHome, AiOutlineFundProjectionScreen, AiOutlineUser } from "react-icons/ai";
+import { AiOutlineHome, AiOutlineFundProjectionScreen, AiOutlineUser } from "react-icons/ai";
 import { useTheme } from "../../context/ThemeContext";
+import { useLanguage } from "../../context/LanguajeContext";
+import Flag from 'react-world-flags';
 
 const theme = {
   light: {
@@ -26,8 +28,28 @@ function Header() {
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const { darkMode, toggleDarkMode } = useTheme();
+  const { language, toggleLanguage } = useLanguage(); 
 
   const currentTheme = darkMode ? theme.dark : theme.light;
+
+  const texts = {
+    en: {
+      home: "Home",
+      about: "About",
+      projects: "Projects",
+      resume: "Resume",
+      github: "Github",
+    },
+    es: {
+      home: "Inicio",
+      about: "Acerca de",
+      projects: "Proyectos",
+      resume: "Currículum",
+      github: "Github",
+    }
+  };
+
+  const currentTexts = texts[language];
 
   useEffect(() => {
     const controlNavbar = () => {
@@ -59,11 +81,11 @@ function Header() {
         <div className="max-w-screen-xl mx-auto px-3 py-2">
           <div className="flex items-center justify-between">
             <div className="flex items-center md:hidden">
-            <span
-              className={`text-lg font-semibold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text`}
-            >
-              Damian Agüero
-            </span>
+              <span
+                className={`text-lg font-semibold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text`}
+              >
+                Damián Agüero
+              </span>
             </div>
             <button onClick={() => updateExpanded(!expand)} className="block md:hidden">
               <span
@@ -85,7 +107,7 @@ function Header() {
                 onClick={() => updateExpanded(false)}
               >
                 <AiOutlineHome />
-                <span>Home</span>
+                <span>{currentTexts.home}</span>
               </NavLink>
               <NavLink
                 to="/about"
@@ -93,7 +115,7 @@ function Header() {
                 onClick={() => updateExpanded(false)}
               >
                 <AiOutlineUser />
-                <span>About</span>
+                <span>{currentTexts.about}</span>
               </NavLink>
               <NavLink
                 to="/project"
@@ -101,7 +123,7 @@ function Header() {
                 onClick={() => updateExpanded(false)}
               >
                 <AiOutlineFundProjectionScreen />
-                <span>Projects</span>
+                <span>{currentTexts.projects}</span>
               </NavLink>
               <NavLink
                 to="/resume"
@@ -109,7 +131,7 @@ function Header() {
                 onClick={() => updateExpanded(false)}
               >
                 <CgFileDocument />
-                <span>Resume</span>
+                <span>{currentTexts.resume}</span>
               </NavLink>
               <a
                 href="https://github.com/Aleu79"
@@ -118,13 +140,20 @@ function Header() {
                 className="flex items-center space-x-2 py-1 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:from-indigo-500 hover:via-purple-500 hover:to-pink-500 px-3 py-1 rounded-md shadow-lg transform transition-all duration-300 hover:scale-105 text-white"
               >
                 <CgGitFork />
-                <span>Github</span>
+                <span>{currentTexts.github}</span>
               </a>
               <button
                 onClick={toggleDarkMode}
                 className={`py-1 px-3 rounded-md transition-all duration-300 ${currentTheme.toggleButton}`}
               >
                 {darkMode ? "🌞" : "🌙"}
+              </button>
+              <button
+                onClick={toggleLanguage}
+                className={`py-1 px-3 rounded-md transition-all duration-300 ${currentTheme.toggleButton} flex items-center space-x-2`}
+              >
+                <Flag code={language === 'es' ? 'GB' : 'AR'} style={{ width: '20px', height: '15px' }} />
+                <span className="ml-2">{language === 'es' ? 'English' : 'Español'}</span>
               </button>
             </div>
           </div>

@@ -1,10 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import Loading from '../components/Loading';
+import { useLanguage } from '../context/LanguajeContext';
+
+const texts = {
+  en: {
+    title: "My Resume",
+    downloadCV: "Download CV"
+  },
+  es: {
+    title: "Mi Currículum",
+    downloadCV: "Descargar CV"
+  }
+};
 
 function Resume() {
   const { darkMode } = useTheme();
   const [loading, setLoading] = useState(true);
+  const { language } = useLanguage();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -26,7 +39,7 @@ function Resume() {
             darkMode ? 'text-blue-400' : 'text-indigo-600'
           }`}
         >
-          My Resume
+          {texts[language].title}
         </h1>
 
         {loading ? (
@@ -47,7 +60,7 @@ function Resume() {
                   : 'bg-indigo-600 text-white hover:bg-indigo-500'
               }`}
             >
-              Download CV
+              {texts[language].downloadCV}
             </a>
           </>
         )}
