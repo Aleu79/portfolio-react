@@ -58,7 +58,7 @@ const Footer = () => {
           </p>
           <div className="mt-6 flex justify-center space-x-6">
             <a
-              href="https://github.com/Aleu79"
+              href="https://github.com/Aleu79?tab=repositories"
               target="_blank"
               rel="noopener noreferrer"
               className="text-2xl hover:text-gray-400 transition-colors duration-300 transform hover:scale-125 hover:rotate-12 transition-transform duration-500"
