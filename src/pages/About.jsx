@@ -3,7 +3,6 @@ import { useTheme } from '../context/ThemeContext';
 
 function About() {
   const { darkMode } = useTheme();
-
   return (
     <section
       className={`transition-colors duration-300 py-16 px-6 ${
@@ -11,7 +10,6 @@ function About() {
       }`}
     >
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-12">
-        {/* Left - Text Section */}
         <div className="lg:w-1/2">
           <h2
             className={`text-4xl font-bold mb-6 transition-colors duration-300 ${

@@ -59,9 +59,11 @@ function Header() {
         <div className="max-w-screen-xl mx-auto px-3 py-2">
           <div className="flex items-center justify-between">
             <div className="flex items-center md:hidden">
-              <span className={`text-lg font-medium ${currentTheme.text}`}>
-                Damian agüero
-              </span>
+            <span
+              className={`text-lg font-semibold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text`}
+            >
+              Damian Agüero
+            </span>
             </div>
             <button onClick={() => updateExpanded(!expand)} className="block md:hidden">
               <span
@@ -93,10 +95,6 @@ function Header() {
                 <CgFileDocument />
                 <span>Resume</span>
               </Link>
-              <a href="/re" target="_blank" rel="noreferrer" className={linkClasses}>
-                <ImBlog />
-                <span>Blogs</span>
-              </a>
               <a
                 href="https://github.com/Aleu79"
                 target="_blank"
@@ -108,11 +106,11 @@ function Header() {
                 <span>Github</span>
               </a>
               <button
-        onClick={toggleDarkMode}
-        className={`py-1 px-3 rounded-md transition-all duration-300 ${currentTheme.toggleButton}`}
-      >
-        {darkMode ? "🌞" : "🌙"}
-      </button>
+                onClick={toggleDarkMode}
+                className={`py-1 px-3 rounded-md transition-all duration-300 ${currentTheme.toggleButton}`}
+              >
+                {darkMode ? "🌞" : "🌙"}
+              </button>
             </div>
           </div>
         </div>

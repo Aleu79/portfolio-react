@@ -1,3 +1,117 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Estilos en la sección home */
+
+.tech-section {
+  position: relative;
+  padding-top: 80px;
+}
+
+.tech-description {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
+              0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 50;
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 1rem 0;
+}
+
+.carousel-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-content {
+  display: flex;
+  gap: 1.5rem;
+  animation: scroll 30s linear infinite;
+  will-change: transform;
+  padding: 1rem 0;
+}
+
+.carousel-content.paused {
+  animation-play-state: paused;
+}
+
+.tech-item {
+  position: relative;
+}
+
+.tech-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.75rem;
+  font-size: 2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.tech-icon:hover {
+  transform: translateY(-5px);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 0.75rem));
+  }
+}
+
+@media (min-width: 640px) {
+  .tech-icon {
+    width: 6rem;
+    height: 6rem;
+    font-size: 2.5rem;
+  }
+
+  .tech-description {
+    width: 350px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tech-icon {
+    width: 7rem;
+    height: 7rem;
+    font-size: 3rem;
+  }
+
+  .tech-description {
+    width: 400px;
+  }
+}
